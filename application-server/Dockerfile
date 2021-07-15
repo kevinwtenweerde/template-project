@@ -14,10 +14,10 @@ RUN mvn clean install
 FROM adoptopenjdk/openjdk11:alpine-slim
 
 # Copy the jar to the production image from the builder stage.
-COPY --from=builder /tmp/template-app/target/server*.jar /server.jar
+COPY --from=builder /tmp/template-app/target/application-server*.jar /application-server.jar
 
 EXPOSE 8080
 
 # Run the web service on container startup.
-CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/server.jar"]
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/application-server.jar"]
 

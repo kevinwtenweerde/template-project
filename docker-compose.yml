@@ -3,6 +3,11 @@ version: '3.4'
 services:
   api:
     build: ./application-server
-    container_name: template-project-docker
+    container_name: application-server
     ports:
       - "8080:8080"
+  ui:
+    build: ./application-ui
+    container_name: application-ui
+    ports:
+      - "8081:80"
